@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <div class="card-body">
+    <div class="row">
+    <div class="col-xs-12">
+      <a [routerLink]="['/add']" style="cursor:pointer">Add New Recipie</a>
+    </div>
+  </div><br>
+   
+      <div class="table-responsive">
+          <table class="table">
+    
+              <tbody>
+                  <tr *ngFor="let recipie of recipies">
+                      
+                      <td><img
+                          [src] = "recipie.imageUrl" 
+                          [title] = "recipie.name"
+                          [style.width.px] = "imageWidth"
+                          [style.margin.px] = "imageMargin"></td>
+                      <td>  {{ recipie.name }}
+                            <br>
+                            {{ recipie.description}}
+                            <br>
+                            <a [routerLink]="['/recipie', recipie._id]" style="cursor:pointer">Read Full Recipie</a>
+                      </td>
+                      <td>
+                            <button [routerLink]="['/edit', recipie._id]"  style="cursor:pointer">EDIT</button>
+                            <button  [routerLink]="['/dlt', recipie]" style="cursor:pointer" class="action-btn" (click)="onDelete(recipie)">DELETE</button>
+                     </td>              
+                  </tr>
+              </tbody>
+          </table>
+      </div> 
+  </div>
+</div>
+  

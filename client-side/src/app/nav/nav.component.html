@@ -1,0 +1,13 @@
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a routerLink="myRecipies" class="w3-bar-item w3-button" *ngIf="hasAuth()">My Recipies</a>
+      <a routerLink="shoppingList" class="w3-bar-item w3-button" *ngIf="hasAuth()">Shopping List</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a routerLink="signup" *ngIf="!hasAuth()" class="w3-bar-item w3-button">Sign Up</a>
+        <a routerLink="login" style="cursor:pointer" *ngIf="!hasAuth()" class="w3-bar-item w3-button">Log In</a>
+        <a routerLink="logout" style="cursor:pointer" *ngIf="hasAuth()"(click)="logoutUser()" class="w3-bar-item w3-button">Log out</a>
+      </div>
+    </div>
+  </div>        

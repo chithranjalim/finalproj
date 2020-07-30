@@ -1,0 +1,57 @@
+<div class="py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <span class="anchor" id="formLogin"></span>
+    
+            <!-- Form card login -->
+            <div class="card rounded-0 w-40">
+            <div class="card-header">
+                <h3 class="mb-0">{{title}}</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" #userSignup="ngForm" (ngSubmit)="signupUser()">
+                    <div class="form-group">
+                        <label for="fname">FIRST NAME</label>
+                        <input type="text" [(ngModel)]="signupUserDetails.fname" #fname="ngModel" [class.is-invalid]="fname.invalid" name="fname" class="form-control rounded-0" required>
+                        <small class="text-danger" [class.d-none]="fname.valid || fname.touched">please enter valid first name</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">LAST NAME</label>
+                        <input type="text" [(ngModel)]="signupUserDetails.lname" #lname="ngModel" [class.is-invalid]="lname.invalid" name="lname" class="form-control rounded-0" required>
+                        <small class="text-danger" [class.d-none]="lname.valid || lname.touched">please enter valid last name</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="DOB">DOB</label>
+                        <input type="date" [(ngModel)]="signupUserDetails.DOB" #DOB="ngModel" [class.is-invalid]="DOB.invalid" name="DOB" class="form-control rounded-0" required>
+                        <small class="text-danger" [class.d-none]="DOB.valid || DOB.touched">please enter DOB</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">USERNAME</label>
+                        <input type="text" [(ngModel)]="signupUserDetails.username" #username="ngModel" [class.is-invalid]="username.invalid && username.touched" name="username" class="form-control rounded-0" required>
+                        <small class="text-danger" [class.d-none]="username.valid || username.touched">please enter a valid username</small>
+                    </div>
+                <div class="form-group">
+                    <label>PASSWORD</label>
+                    <input type="password" [(ngModel)]="signupUserDetails.password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" name="password" class="form-control rounded-0" minlength="6" required>
+                    <small class="text-danger" [class.d-none]="password.valid || password.touched">Enter a valid password</small>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-MAIL</label>
+                    <input type="text" [(ngModel)]="signupUserDetails.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="email" class="form-control rounded-0" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                    <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter a valid email</small>
+                </div>
+                <div class="form-group">
+                    <label for="mob">MOBILE NO.</label>
+                    <input type="number" [(ngModel)]="signupUserDetails.mob" #mob="ngModel" [class.is-invalid]="mob.invalid && mob.touched" name="mob" class="form-control rounded-0" required>
+                    <small class="text-danger" [class.d-none]="mob.valid || mob.touched">Enter a valid mobile number</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" [disabled]="userSignup.form.invalid" class="btn btn-primary float-right">Signup</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
